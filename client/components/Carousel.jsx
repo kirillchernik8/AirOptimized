@@ -7,12 +7,22 @@ class Carousel extends Component {
     super(props)
   }
   render() {
+
+    if(window.innerWidth > 800){
     var settings = {
       dots: true,
       slidesToShow: 3,
       centerMode: true,
       centerPadding:0
-    };
+    }
+  } else {
+    var settings = {
+      dots: true,
+      slidesToShow: 1,
+      centerMode: true,
+      centerPadding:0
+    }
+  }
     return (
          <div className="container">
           <Slider {...settings}>

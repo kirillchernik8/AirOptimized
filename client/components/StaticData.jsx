@@ -2,7 +2,7 @@
 var seed = [
   {
       "id": 130,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/utl6dhy8och4ocikgbtt.jpg",
+      "recImg":  "http://a.webpurr.com/p89G.webp",
       "recDetails": "Sit occaecati quasi necessitatibus labore in qui maiores.",
       "recTitle": "Nulla aspernatur doloribus voluptatem cum.",
       "recCost": "6",
@@ -12,7 +12,7 @@ var seed = [
   },
   {
       "id": 145,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/ixj02esewlgidv91luov.jpg",
+      "recImg": "http://a.webpurr.com/Gl8R.webp",
       "recDetails": "Mollitia et non amet earum quibusdam ipsum non.",
       "recTitle": "Sint enim quia.",
       "recCost": "652",
@@ -22,7 +22,7 @@ var seed = [
   },
   {
       "id": 159,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/j7koxv1vb8ae5gu8warq.jpg",
+      "recImg":  "http://a.webpurr.com/Wj5A.webp",
       "recDetails": "Iusto ea et et repellat minus quae consequuntur est assumenda.",
       "recTitle": "Dicta dignissimos atque natus cum perferendis et.",
       "recCost": "984",
@@ -32,7 +32,7 @@ var seed = [
   },
   {
       "id": 368,
-      "recImg": "https://res.realadvisor.ch/fetch//https://storage.googleapis.com/img.realadvisor.ch/zdncrboyjmjfxmbp7myz.jpg",
+      "recImg": "http://a.webpurr.com/4zYV.webp",
       "recDetails": "Illo illum consequuntur est et.",
       "recTitle": "Eum beatae atque dicta fugit tempora.",
       "recCost": "673",

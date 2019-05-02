@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom'
 import Carousel from './Carousel.jsx' 
 import axios from 'axios'
-import Modal from './Modal.jsx'
+import Modal1 from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
 import Footer from './Footer.jsx'
 import AutoCompleteText from './AutoCompleteText.jsx'
 import {cities, seed} from './StaticData.jsx'
+
 class App extends Component {
   constructor() {
     super()
@@ -21,7 +22,7 @@ class App extends Component {
       modalId: 130,
       editing:false
     }
-    		// bind functions
+    // bind functions
 		this.closeModal = this.closeModal.bind(this);
 		this.openModal = this.openModal.bind(this);
   }
@@ -29,14 +30,15 @@ class App extends Component {
   componentDidMount() {
     if (window.location.pathname !== '/') {
       //Change the below to be the public DNS of your recommendation-service server in AWS
-      axios.get(`/room${window.location.pathname}`) 
-      .then(({data}) => {
+      axios.get(`http://ec2-18-220-26-57.us-east-2.compute.amazonaws.com/room${window.location.pathname}`) 
+      .then((data) => {
         this.setState({
-          recommendations: data
+          recommendations: data.data
         })
       })
-    }
+      .catch((err) => console.err(err))
   }
+}
   // close modal (set isModalOpen, true)
   closeModal() {
     this.setState({
@@ -124,7 +126,7 @@ class App extends Component {
           <div className='more-homes-box'>
             <h2 className='more-homes-title'>More homes you may like</h2>
           </div>
-            <Modal
+            <Modal1
             isModalOpen={this.state.isModalOpen}
             closeModal={this.closeModal}
           >
@@ -145,8 +147,8 @@ class App extends Component {
             <div className ='modal-bottom-box'>
               <img
                 className ='modal-image'
-                width="200px"
-                height="150px"
+                width="80%"
+                height="80%"
                 style={{ borderRadius: 3 }}
                 src= {this.state.modalImg}
                 alt="unsplash"
@@ -155,7 +157,7 @@ class App extends Component {
               <StarRatingComponent className='photo-star-rating modal-box-rating' name='rating' starCount={parseInt(this.state.modalRating)} />
               <div className='photo-rating-count modal-box-rating'>({parseInt(this.state.modalRatingCount)})</div>
             </div>
-          </Modal >
+          </Modal1 >
 
           <Carousel openModal={this.openModal} recommendations={this.state.recommendations}/>
           <Footer />
