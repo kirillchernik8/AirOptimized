@@ -13,4 +13,5 @@ newrelic.js
 newrelic_agent.log
 package*.json
 Dockerfile
+docker-compose.yml
 .dockerignore
