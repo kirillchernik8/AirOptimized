@@ -1,17 +1,14 @@
 let mysql = require('mysql');
 const redis = require('redis');
-
 const client = redis.createClient( 6379, '127.0.0.1');
-
-
 
 let MysqlPoolBooster = require('mysql-pool-booster');
 mysql = MysqlPoolBooster(mysql);
 
 let pool = mysql.createPool({
-  host: '18.220.136.110',  
-  user: 'me',
-  password: 'me',
+  host:'18.220.136.110',  
+  user: 'me' ,
+  password: 'me' ,
   database: 'recs'
 });
 
@@ -19,7 +16,7 @@ let pool = mysql.createPool({
 
 pool.getConnection(function (err) {
   if (err) {
-    return console.error('error: ' + err.message);
+    return console.error('error on getting the pool connection: ' + err.message);
   }
   console.log('Connected to the MySQL server.');
 })
