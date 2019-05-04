@@ -1,15 +1,16 @@
 let mysql = require('mysql');
 const redis = require('redis');
 const client = redis.createClient( 6379, '127.0.0.1');
+require('dotenv').config()
 
 let MysqlPoolBooster = require('mysql-pool-booster');
 mysql = MysqlPoolBooster(mysql);
 
 let pool = mysql.createPool({
-  host:'18.220.136.110',  
-  user: 'me' ,
-  password: 'me' ,
-  database: 'recs'
+  host:process.env.DB_HOST,  
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 
@@ -27,7 +28,7 @@ let find = (req, res) => {
   pool.query(`select * from recommendations where roomId = (select roomId from recommendations where id = ${id}) LIMIT 4 `, (err, result) => {
     if (err) res.status(500)
 
-    client.setex(id, 3600, JSON.stringify(result))
+    client.set(id, JSON.stringify(result), 'EX', 3600)
     res.send(result)
   })
 }

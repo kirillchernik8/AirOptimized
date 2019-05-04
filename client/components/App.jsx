@@ -7,6 +7,8 @@ import StarRatingComponent from 'react-star-rating-component'
 import Footer from './Footer.jsx'
 import AutoCompleteText from './AutoCompleteText.jsx'
 import {cities, seed} from './StaticData.jsx'
+
+require('dotenv').config()
 class App extends Component {
   constructor() {
     super()
@@ -29,7 +31,7 @@ class App extends Component {
   componentDidMount() {
     if (window.location.pathname !== '/') {
       //Change the below to be the public DNS of your recommendation-service server in AWS
-      axios.get(`http://ec2-18-220-26-57.us-east-2.compute.amazonaws.com/room${window.location.pathname}`) 
+      axios.get(`${process.env.EC2_IP}/room${window.location.pathname}`) 
       .then((data) => {
         this.setState({
           recommendations: data.data

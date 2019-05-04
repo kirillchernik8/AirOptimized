@@ -1,7 +1,5 @@
-// var nr = require('newrelic');
-
+var nr = require('newrelic');
 var compression = require('compression')
-
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -16,8 +14,8 @@ app.use(compression())
 
 app.use(express.static(path.join(__dirname, '../public')))
 
-app.get('/loaderio-c6167ee21f58ee198d073e6f372f323e', (req, res)=>{
-  res.sendFile(path.join(__dirname + '/loaderio-c6167ee21f58ee198d073e6f372f323e.txt'))
+app.get('/loaderio-6b59f0e58cb0398402df3356050f2666', (req, res)=>{
+  res.sendFile(path.join(__dirname + '/loaderio-6b59f0e58cb0398402df3356050f2666.txt'))
 })
 
 
