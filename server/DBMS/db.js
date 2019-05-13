@@ -14,7 +14,6 @@ let pool = mysql.createPool({
 });
 
 
-
 pool.getConnection(function (err) {
   if (err) {
     return console.error('error on getting the pool connection: ' + err.message);
@@ -27,7 +26,7 @@ let find = (req, res) => {
   let id = req.params.room
   pool.query(`select * from recommendations where roomId = (select roomId from recommendations where id = ${id}) LIMIT 4 `, (err, result) => {
     if (err) res.status(500)
-
+    // settting up caching
     client.set(id, JSON.stringify(result), 'EX', 3600)
     res.send(result)
   })
