@@ -22,7 +22,7 @@ to:
 `axios.get(`http://[Insert AWS EC2 public DNS]/room${window.location.pathname}`) `
 
 ### ex:
-`axios.get( ``http://ec2-54-90-97-213.compute-1.amazonaws.com/room${window.location.pathname}``) `
+`` axios.get(`http://ec2-54-90-97-213.compute-1.amazonaws.com/room${window.location.pathname}`) ``
 
 - Setup port forwarding to port 3001
 `sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3001`
