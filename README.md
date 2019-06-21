@@ -21,7 +21,7 @@ from:
 to:
 `axios.get(`http://[Insert AWS EC2 public DNS]/room${window.location.pathname}`) `
 
-### ex:
+### Example:
 `` axios.get(`http://ec2-54-90-97-213.compute-1.amazonaws.com/room${window.location.pathname}`) ``
 
 - Setup port forwarding to port 3001
