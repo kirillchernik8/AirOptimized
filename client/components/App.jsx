@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom'
-import Carousel from './Carousel.jsx' 
+import Carousel from './Carousel.jsx'
 import axios from 'axios'
 import Modal1 from './Modal.jsx'
 import StarRatingComponent from 'react-star-rating-component'
@@ -23,59 +23,57 @@ class App extends Component {
       modalId: 130,
       editing:false
     }
-    // bind functions
 		this.closeModal = this.closeModal.bind(this);
 		this.openModal = this.openModal.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount( ) {
     if (window.location.pathname !== '/') {
-      //Change the below to be the public DNS of your recommendation-service server in AWS
-      axios.get(`${process.env.EC2_IP}/room${window.location.pathname}`) 
-      .then((data) => {
+      axios.get(`${process.env.EC2_IP}/room${window.location.pathname}`)
+      .then(( data ) => {
         this.setState({
           recommendations: data.data
         })
       })
-      .catch((err) => console.err(err))
+      .catch(( err ) => console.err(err))
   }
 }
   // close modal (set isModalOpen, true)
-  closeModal() {
+  closeModal( ) {
     this.setState({
       isModalOpen: false
     });
   }
 
   // open modal (set isModalOpen, false)
-  openModal(event) {
+  openModal( event ) {
     this.setState({
       isModalOpen: true,
       modalId: parseInt(event.target.getAttribute('value')),
       modalImg: event.target.getAttribute('img'),
       modalTitle: event.target.getAttribute('title'),
-      modalRating: event.target.getAttribute('rating'), 
+      modalRating: event.target.getAttribute('rating'),
       modalRatingCount: event.target.getAttribute('recratingcount')
     });
   }
 
-  edit() {
+  edit( ) {
     this.setState({
       editing: true,
     })
   }
 
-  save(e) {
+  save( e ) {
     e.preventDefault();
     this.setState({
-      editing:false, 
+      editing:false,
       note: this.state.cache,
       cachhe: undefined
     })
   }
 
   cancel(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     this.setState({
       editing:false,
       cache: undefined
@@ -139,7 +137,7 @@ class App extends Component {
 
             <h1 className='save-to-list-text'>Save to list</h1>
             <div className='create-new-list-div'>
-              
+
               {this.state.editing ? this.renderForm() : this.renderDisplay()}
             </div>
             <div className='top-bottom-border'>
